@@ -11,5 +11,5 @@ interface GetDataService {
     fun getCategoryList(): Call<Category>
 
     @GET("filter.php")
-    fun getMealList(@Query("c") category: String): Call<Meal>
+    fun getMealList(@retrofit2.http.Query("c") category: String): Call<Meal>
 }

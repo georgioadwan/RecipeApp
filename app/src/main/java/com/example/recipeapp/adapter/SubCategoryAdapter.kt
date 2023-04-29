@@ -2,6 +2,7 @@ package com.example.recipeapp.adapter
 
 import com.example.recipeapp.R
 import android.app.Activity
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,7 +15,7 @@ import com.example.recipeapp.entities.Recipes
 
 
 class SubCategoryAdapter: RecyclerView.Adapter<SubCategoryAdapter.RecipeViewHolder>() {
-    var ctx :context? = null
+    var ctx : Context? = null
     var arrSubCategory = ArrayList<MealsItems>()
     class RecipeViewHolder(view: View): RecyclerView.ViewHolder(view) {
 
