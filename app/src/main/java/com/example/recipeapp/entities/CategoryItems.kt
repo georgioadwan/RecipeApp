@@ -19,7 +19,7 @@ data class CategoryItems(
     @ColumnInfo(name = "strcategory")
     @Expose
     @SerializedName("strCategory")
-    val strcategory: String,
+    val strcategory: String="qwerty",
 
     @ColumnInfo(name = "strcategorythumb")
     @Expose

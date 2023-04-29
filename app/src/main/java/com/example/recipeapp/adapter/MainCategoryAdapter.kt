@@ -47,8 +47,10 @@ class MainCategoryAdapter: RecyclerView.Adapter<MainCategoryAdapter.RecipeViewHo
             override fun onCreate(savedInstanceState: Bundle?) {
                 super.onCreate(savedInstanceState)
                 setContentView(R.layout.item_rv_main_category)
-                val txtDishName = findViewById<View>(R.id.tv_dish_name) as TextView
-                txtDishName.text = arrMainCategory[position].strcategory
+                val txtDishName = findViewById<TextView>(R.id.tv_dish_name)
+                txtDishName.setText("1, 2981038129, jdsjdklsakd, jdklsajdklsajdkla")
+                txtDishName.invalidate()
+                txtDishName.requestLayout()//arrMainCategory[position].strcategory
                 Glide.with(ctx!!).load(arrMainCategory[position].strcategorythumb).into(holder.itemView.findViewById(R.id.img_dish))
                 holder.itemView.rootView.setOnClickListener {
                     listener!!.onClicked(arrMainCategory[position].strcategory)

@@ -99,7 +99,7 @@ class SplashActivity : BaseActivity(), EasyPermissions.RationaleCallbacks, EasyP
                     )
                     RecipeDatabase.getDatabase(this@SplashActivity)
                         .recipeDao().insertMeal(mealItemModel)
-                    Log.d("mealData", arr.toString())
+                    //Log.e("mealData", mealItemModel.toString())
                 }
                 val getStartedBtn = findViewById<Button>(R.id.btnGetStarted)
                 getStartedBtn.visibility = View.VISIBLE
