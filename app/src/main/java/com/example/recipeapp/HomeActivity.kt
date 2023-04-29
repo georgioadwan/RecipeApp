@@ -1,5 +1,6 @@
 package com.example.recipeapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.LinearLayout
@@ -27,6 +28,7 @@ class HomeActivity : BaseActivity() {
 
         getDataFromDb()
         mainCategoryAdapter.setClickListener(onClicked)
+        subCategoryAdapter.setClickListener(onClickedSubItem)
 
 
 
@@ -38,6 +40,14 @@ class HomeActivity : BaseActivity() {
     private val onClicked = object : MainCategoryAdapter.OnItemClickListener {
         override fun onClicked(categoryName: String) {
             getMealDataFromDb(categoryName)
+        }
+    }
+
+    private val onClickedSubItem = object : SubCategoryAdapter.OnItemClickListener {
+        override fun onClicked(id: String) {
+            var intent = Intent(this@HomeActivity, DetailActivity::class.java)
+            intent.putExtra("id", id)
+            startActivity(intent)
         }
     }
 
