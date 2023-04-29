@@ -6,6 +6,8 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.recipeapp.entities.Category
 import com.example.recipeapp.entities.CategoryItems
+import com.example.recipeapp.entities.Meal
+import com.example.recipeapp.entities.MealsItems
 import com.example.recipeapp.entities.Recipes
 
 @Dao
@@ -17,6 +19,12 @@ interface RecipeDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertCategory (categoryItems: CategoryItems?)
 
-    @Query("DELETE FROM categoryitems")
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertMeal (mealsItems: MealsItems?)
+
+    @Query("DELETE FROM categoryItems")
     suspend fun clearDb()
+
+    @Query("SELECT * FROM MealsItems WHERE categoryName = :categoryName ORDER BY id DESC")
+    suspend fun getSpecificMealList(categoryName:String): List<MealsItems>
 }

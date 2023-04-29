@@ -17,9 +17,9 @@ import com.example.recipeapp.entities.Recipes
 
 class MainCategoryAdapter: RecyclerView.Adapter<MainCategoryAdapter.RecipeViewHolder>() {
 
+    var listener: OnItemClickListener? = null
     var ctx: Context? = null
     var arrMainCategory = ArrayList<CategoryItems>()
-
 
     class RecipeViewHolder(view: View): RecyclerView.ViewHolder(view) {
 
@@ -27,6 +27,10 @@ class MainCategoryAdapter: RecyclerView.Adapter<MainCategoryAdapter.RecipeViewHo
 
     fun setData(arrData : List<CategoryItems>) {
         arrMainCategory = arrData as ArrayList<CategoryItems>
+    }
+
+    fun setClickListener(listener1: OnItemClickListener) {
+        listener = listener1
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {
@@ -46,7 +50,14 @@ class MainCategoryAdapter: RecyclerView.Adapter<MainCategoryAdapter.RecipeViewHo
                 val txtDishName = findViewById<View>(R.id.tv_dish_name) as TextView
                 txtDishName.text = arrMainCategory[position].strcategory
                 Glide.with(ctx!!).load(arrMainCategory[position].strcategorythumb).into(holder.itemView.findViewById(R.id.img_dish))
+                holder.itemView.rootView.setOnClickListener {
+                    listener!!.onClicked(arrMainCategory[position].strcategory)
+                }
             }
         }
+    }
+
+    interface OnItemClickListener {
+        fun onClicked(categoryName:String)
     }
 }

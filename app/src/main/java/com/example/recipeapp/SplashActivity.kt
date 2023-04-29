@@ -2,6 +2,7 @@ package com.example.recipeapp
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ProgressBar
@@ -10,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recipeapp.database.RecipeDatabase
 import com.example.recipeapp.entities.Category
+import com.example.recipeapp.entities.Meal
+import com.example.recipeapp.entities.MealsItems
 import com.example.recipeapp.interfaces.GetDataService
 import com.example.recipeapp.retrofitclient.RetrofitClientInstance
 import kotlinx.coroutines.CoroutineScope
@@ -42,8 +45,6 @@ class SplashActivity : BaseActivity(), EasyPermissions.RationaleCallbacks, EasyP
         val call = service.getCategoryList()
         call.enqueue(object : Callback<Category>{
             override fun onFailure(call: Call<Category>, t: Throwable) {
-                val loader = findViewById<ProgressBar>(R.id.loader)
-                loader.visibility = View.INVISIBLE
                 Toast.makeText(this@SplashActivity, "Something went wrong", Toast.LENGTH_SHORT).show()
             }
 
@@ -51,7 +52,27 @@ class SplashActivity : BaseActivity(), EasyPermissions.RationaleCallbacks, EasyP
                 call: Call<Category>,
                 response: Response<Category>
             ){
+                for (arr in response.body()!!.categoryItems!!) {
+                    getMeal(arr.strcategory)
+                }
                 insertDataIntoRoomDb(response.body())
+            }
+        })
+    }
+
+    fun getMeal(categoryName: String) {
+        val service = RetrofitClientInstance.retrofitInstance.create(GetDataService::class.java)
+        val call = service.getMealList(categoryName)
+        call.enqueue(object : Callback<Meal>{
+            override fun onFailure(call: Call<Meal>, t: Throwable) {
+                Toast.makeText(this@SplashActivity, "Something went wrong", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onResponse (
+                call: Call<Meal>,
+                response: Response<Meal>
+            ){
+                insertMealDataIntoRoomDb(categoryName, response.body())
             }
         })
     }
@@ -59,13 +80,39 @@ class SplashActivity : BaseActivity(), EasyPermissions.RationaleCallbacks, EasyP
     fun insertDataIntoRoomDb(category: Category?) {
         launch {
             this.let {
-                RecipeDatabase.getDatabase(this@SplashActivity).recipeDao().clearDb()
                 for (arr in category!!.categoryItems!!) {
                     RecipeDatabase.getDatabase(this@SplashActivity)
                         .recipeDao().insertCategory(arr)
                 }
+            }
+        }
+    }
+
+    fun insertMealDataIntoRoomDb(categoryName: String, meal: Meal?) {
+        launch {
+            this.let {
+                for (arr in meal!!.mealsItem!!) {
+                    var mealItemModel = MealsItems(
+                        arr.id,
+                        arr.idMeal,
+                        categoryName,
+                        arr.strmeal,
+                        arr.strmealthumb
+                    )
+                    RecipeDatabase.getDatabase(this@SplashActivity)
+                        .recipeDao().insertMeal(mealItemModel)
+                    Log.d("mealData", arr.toString())
+                }
                 val getStartedBtn = findViewById<Button>(R.id.btnGetStarted)
                 getStartedBtn.visibility = View.VISIBLE
+            }
+        }
+    }
+
+    fun clearDataBase() {
+        launch {
+            this.let {
+                RecipeDatabase.getDatabase(this@SplashActivity).recipeDao().clearDb()
             }
         }
     }
@@ -76,6 +123,7 @@ class SplashActivity : BaseActivity(), EasyPermissions.RationaleCallbacks, EasyP
 
     private fun readStorageTask() {
         if (hasReadStoragePermission()) {
+            clearDataBase()
             getCategories()
         } else {
             EasyPermissions.requestPermissions(
