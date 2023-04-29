@@ -5,6 +5,7 @@ import com.example.recipeapp.entities.Meal
 import com.example.recipeapp.entities.MealResponse
 import retrofit2.Call
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 interface GetDataService {
     @GET("categories.php")
@@ -14,5 +15,5 @@ interface GetDataService {
     fun getMealList(@retrofit2.http.Query("c") category: String): Call<Meal>
 
     @GET("lookup.php")
-    fun getSpecificItem(@retrofit2.http.Query("i") id: Int): Call<MealResponse>
+    fun getSpecificItem(@Query("i") id: String): Call<MealResponse>
 }

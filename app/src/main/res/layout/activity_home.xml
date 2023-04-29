@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray"
+    android:background="@color/white"
     tools:context=".SplashActivity">
 
     <ScrollView
@@ -21,10 +21,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/gilroy_bold"
-                android:padding="10dp"
+                android:padding="@dimen/_10sdp"
                 android:text="All Recipes"
                 android:textColor="@color/black"
-                android:textSize="20dp" />
+                android:textSize="@dimen/_20ssp" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -42,6 +42,7 @@
                     android:background="@drawable/search_bg"
                     android:iconifiedByDefault="false"
                     android:queryHint="Search for recipes"
+                    app:queryBackground="@color/transparent"
                     android:theme="@style/ThemeOverlay.Search" />
 
             </androidx.cardview.widget.CardView>
@@ -50,7 +51,7 @@
                 android:id="@+id/rv_main_category"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/_10sdp"
                 android:orientation="horizontal"
                 tools:itemCount="1"
                 tools:listitem="@layout/item_rv_main_category" />
@@ -63,13 +64,13 @@
                 android:text="Category name"
                 android:id="@+id/tvCategory"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_15sdp" />
+                android:textSize="@dimen/_15ssp" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_sub_category"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/_10sdp"
                 android:orientation="horizontal"
                 tools:itemCount="1"
                 tools:listitem="@layout/item_rv_sub_category" />

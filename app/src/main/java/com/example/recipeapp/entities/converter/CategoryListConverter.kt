@@ -1,7 +1,6 @@
 package com.example.recipeapp.entities.converter
 
 import androidx.room.TypeConverter
-import com.example.recipeapp.entities.Category
 import com.example.recipeapp.entities.CategoryItems
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken

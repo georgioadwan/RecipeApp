@@ -7,6 +7,7 @@
     android:background="@color/white"
     tools:context=".DetailActivity">
 
+
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -78,13 +79,11 @@
         android:layout_height="match_parent"
         android:clipToPadding="false"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical">
-
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -92,22 +91,21 @@
                 android:layout_margin="@dimen/_10sdp"
                 app:cardCornerRadius="@dimen/_10sdp"
                 app:cardElevation="@dimen/_5sdp">
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:orientation="vertical"
                     android:layout_marginStart="@dimen/_20sdp"
-                    android:layout_marginEnd="@dimen/_20sdp"
-                    android:orientation="vertical">
+                    android:layout_marginEnd="@dimen/_20sdp">
 
                     <TextView
-                        android:id="@+id/tvCategory"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/gilroy_bold"
+                        android:textAlignment="center"
                         android:padding="@dimen/_10sdp"
                         android:text="Category name"
-                        android:textAlignment="center"
+                        android:id="@+id/tvCategory"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_15ssp" />
 
@@ -126,53 +124,53 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/ic_time" />
+                                android:src="@drawable/ic_time"/>
 
 
                             <TextView
                                 android:id="@+id/tvTime"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/gilroy_light"
+                                android:text="30 min"
+                                android:textSize="@dimen/_10ssp"
+                                android:textColor="@color/hintTextColor"
                                 android:maxEms="10"
                                 android:maxLines="2"
-                                android:paddingStart="@dimen/_5sdp"
+                                android:textStyle="bold"
+                                android:fontFamily="@font/gilroy_light"
                                 android:paddingTop="@dimen/_10sdp"
-                                android:paddingBottom="@dimen/_10sdp"
-                                android:text="30 min"
-                                android:textColor="@color/hintTextColor"
-                                android:textSize="@dimen/_10ssp"
-                                android:textStyle="bold" />
+                                android:paddingStart="@dimen/_5sdp"
+                                android:paddingBottom="@dimen/_10sdp"/>
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
+                            android:gravity="center"
                             android:layout_marginStart="@dimen/_10sdp"
                             android:layout_marginEnd="@dimen/_10sdp"
-                            android:gravity="center"
                             android:orientation="horizontal">
 
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/ic_time" />
+                                android:src="@drawable/ic_time"/>
 
 
                             <TextView
                                 android:id="@+id/cal"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/gilroy_light"
+                                android:text="247 cals"
+                                android:textSize="@dimen/_10ssp"
+                                android:textColor="@color/hintTextColor"
                                 android:maxEms="10"
                                 android:maxLines="2"
-                                android:paddingStart="@dimen/_5sdp"
+                                android:textStyle="bold"
+                                android:fontFamily="@font/gilroy_light"
                                 android:paddingTop="@dimen/_10sdp"
-                                android:paddingBottom="@dimen/_10sdp"
-                                android:text="247 cals"
-                                android:textColor="@color/hintTextColor"
-                                android:textSize="@dimen/_10ssp"
-                                android:textStyle="bold" />
+                                android:paddingStart="@dimen/_5sdp"
+                                android:paddingBottom="@dimen/_10sdp"/>
                         </LinearLayout>
 
                         <LinearLayout
@@ -184,23 +182,23 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/ic_time" />
+                                android:src="@drawable/ic_time"/>
 
 
                             <TextView
                                 android:id="@+id/tvServing"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/gilroy_light"
+                                android:text="3 persons"
+                                android:textSize="@dimen/_10ssp"
+                                android:textColor="@color/hintTextColor"
                                 android:maxEms="10"
                                 android:maxLines="2"
-                                android:paddingStart="@dimen/_5sdp"
+                                android:textStyle="bold"
+                                android:fontFamily="@font/gilroy_light"
                                 android:paddingTop="@dimen/_10sdp"
-                                android:paddingBottom="@dimen/_10sdp"
-                                android:text="3 persons"
-                                android:textColor="@color/hintTextColor"
-                                android:textSize="@dimen/_10ssp"
-                                android:textStyle="bold" />
+                                android:paddingStart="@dimen/_5sdp"
+                                android:paddingBottom="@dimen/_10sdp"/>
                         </LinearLayout>
 
                     </LinearLayout>
@@ -224,7 +222,6 @@
                 android:layout_margin="@dimen/_10sdp"
                 app:cardCornerRadius="@dimen/_10sdp"
                 app:cardElevation="@dimen/_5sdp">
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -234,13 +231,13 @@
                         android:id="@+id/tvIngredients"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/gilroy_light"
-                        android:paddingStart="@dimen/_5sdp"
-                        android:paddingTop="@dimen/_10sdp"
-                        android:paddingBottom="@dimen/_10sdp"
-                        android:textColor="@color/hintTextColor"
                         android:textSize="@dimen/_10ssp"
-                        android:textStyle="bold" />
+                        android:textColor="@color/hintTextColor"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/gilroy_light"
+                        android:paddingTop="@dimen/_10sdp"
+                        android:paddingStart="@dimen/_5sdp"
+                        android:paddingBottom="@dimen/_10sdp"/>
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -261,7 +258,6 @@
                 app:cardBackgroundColor="@color/pink"
                 app:cardCornerRadius="@dimen/_10sdp"
                 app:cardElevation="@dimen/_5sdp">
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -271,28 +267,28 @@
                         android:id="@+id/tvInstructions"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/gilroy_light"
-                        android:paddingStart="@dimen/_5sdp"
-                        android:paddingTop="@dimen/_10sdp"
-                        android:paddingBottom="@dimen/_10sdp"
-                        android:textColor="@color/hintTextColor"
                         android:textSize="@dimen/_10ssp"
-                        android:textStyle="bold" />
+                        android:textColor="@color/hintTextColor"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/gilroy_light"
+                        android:paddingTop="@dimen/_10sdp"
+                        android:paddingStart="@dimen/_5sdp"
+                        android:paddingBottom="@dimen/_10sdp"/>
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
 
             <Button
-                android:id="@+id/btnYoutube"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/btnYoutube"
+                android:textColor="@color/white"
                 android:layout_margin="@dimen/_10sdp"
-                android:background="@drawable/btn_bg3"
                 android:paddingStart="@dimen/_20sdp"
                 android:paddingEnd="@dimen/_20sdp"
-                android:text="Youtube"
-                android:textColor="@color/white" />
+                android:background="@drawable/btn_bg3"
+                android:text="Youtube"/>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

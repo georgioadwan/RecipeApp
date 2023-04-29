@@ -16,7 +16,7 @@ import com.example.recipeapp.entities.Recipes
 
 class SubCategoryAdapter: RecyclerView.Adapter<SubCategoryAdapter.RecipeViewHolder>() {
     var listener: SubCategoryAdapter.OnItemClickListener? = null
-    var ctx : Context? = null
+    var ctx :Context? = null
     var arrSubCategory = ArrayList<MealsItems>()
     class RecipeViewHolder(view: View): RecyclerView.ViewHolder(view) {
 
@@ -45,8 +45,8 @@ class SubCategoryAdapter: RecyclerView.Adapter<SubCategoryAdapter.RecipeViewHold
                 super.onCreate(savedInstanceState)
                 setContentView(R.layout.item_rv_sub_category)
                 val txtDishName = findViewById<View>(R.id.tv_dish_name) as TextView
-                txtDishName.text = arrSubCategory[position].strmeal
-                Glide.with(ctx!!).load(arrSubCategory[position].strmealthumb).into(holder.itemView.findViewById(R.id.img_dish))
+                txtDishName.text = arrSubCategory[position].strMeal
+                Glide.with(ctx!!).load(arrSubCategory[position].strMealThumb).into(holder.itemView.findViewById(R.id.img_dish))
 
                 holder.itemView.rootView.setOnClickListener {
                     listener!!.onClicked(arrSubCategory[position].idMeal)

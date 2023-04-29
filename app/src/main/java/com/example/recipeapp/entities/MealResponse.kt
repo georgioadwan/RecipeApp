@@ -80,6 +80,21 @@ data class MealsEntity(
     @SerializedName("strIngredient15")
     val stringredient15: String,
     @Expose
+    @SerializedName("strIngredient16")
+    val stringredient16: String,
+    @Expose
+    @SerializedName("strIngredient17")
+    val stringredient17: String,
+    @Expose
+    @SerializedName("strIngredient18")
+    val stringredient18: String,
+    @Expose
+    @SerializedName("strIngredient19")
+    val stringredient19: String,
+    @Expose
+    @SerializedName("strIngredient20")
+    val stringredient20: String,
+    @Expose
     @SerializedName("strMeasure1")
     val strmeasure1: String,
     @Expose
@@ -123,5 +138,23 @@ data class MealsEntity(
     val strmeasure14: String,
     @Expose
     @SerializedName("strMeasure15")
-    val strmeasure15: String
+    val strmeasure15: String,
+    @Expose
+    @SerializedName("strMeasure16")
+    val strmeasure16: String,
+    @Expose
+    @SerializedName("strMeasure17")
+    val strmeasure17: String,
+    @Expose
+    @SerializedName("strMeasure18")
+    val strmeasure18: String,
+    @Expose
+    @SerializedName("strMeasure19")
+    val strmeasure19: String,
+    @Expose
+    @SerializedName("strMeasure20")
+    val strmeasure20: String,
+    @Expose
+    @SerializedName("strSource")
+    val strsource: String
 )

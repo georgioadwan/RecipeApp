@@ -12,7 +12,6 @@ import com.bumptech.glide.Glide
 import com.example.recipeapp.entities.MealResponse
 import com.example.recipeapp.interfaces.GetDataService
 import com.example.recipeapp.retrofitclient.RetrofitClientInstance
-import org.w3c.dom.Text
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

@@ -1,19 +1,15 @@
 package com.example.recipeapp
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recipeapp.adapter.MainCategoryAdapter
 import com.example.recipeapp.adapter.SubCategoryAdapter
 import com.example.recipeapp.database.RecipeDatabase
-import com.example.recipeapp.entities.Category
 import com.example.recipeapp.entities.CategoryItems
 import com.example.recipeapp.entities.MealsItems
-import com.example.recipeapp.entities.Recipes
 import kotlinx.coroutines.launch
 
 class HomeActivity : BaseActivity() {
@@ -29,11 +25,6 @@ class HomeActivity : BaseActivity() {
         getDataFromDb()
         mainCategoryAdapter.setClickListener(onClicked)
         subCategoryAdapter.setClickListener(onClickedSubItem)
-
-
-
-
-
 
     }
 
